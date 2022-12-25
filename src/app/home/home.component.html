@@ -1,0 +1,193 @@
+<div class="header-container">
+    <img src="assets/OIP.jpg" alt="">
+    <nav class="nav-bar nav-font">
+        <span class="nav-content">Home</span>
+        <span class="nav-content">About</span>
+        <span class="nav-content">Manufacture vehicles</span>
+        <span class="nav-content">Insurance</span>
+        <span class="nav-content">Contact</span>
+        <div class="nav-content dropdown">English<img class="ml-12" src="assets/down-arrow.svg" alt="">
+          <div class="dropdown-content">
+            <a href="#">English</a>
+            <a href="#">हिन्दी</a>
+            <a href="#">தமிழ்</a>
+          </div>
+        </div>
+        <span class="nav-content mr-auto">Add to wishlist ({{wishlistCount}})</span>
+    </nav>
+</div>
+  <!-- <nav class="nav-bar nav-font">
+    <span class="nav-content">Home</span>
+    <span class="nav-content">About</span>
+    <div class="nav-content dropdown">Holidays of a lifetime<img class="ml-12" src="assets/down-arrow.svg" alt="">
+      <div class="dropdown-content">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </div>
+    </div>
+    <div class="nav-content dropdown">Journey<img class="ml-12" src="assets/down-arrow.svg" alt="">
+      <div class="dropdown-content">
+        <a href="#">Journey 1</a>
+        <a href="#">Journey 2</a>
+        <a href="#">Journey 3</a>
+      </div>
+    </div>
+    <div class="nav-content dropdown">Destination<img class="ml-12" src="assets/down-arrow.svg" alt="">
+      <div class="dropdown-content">
+        <a href="#">Destination 1</a>
+        <a href="#">Destination 2</a>
+        <a href="#">Destination 3</a>
+      </div>
+    </div>
+    <span class="nav-content">The Blog</span>
+    <span class="nav-content mr-auto" style="box-shadow: none;">Contact</span>
+  </nav> -->
+  <div class="main-content">
+      <img class="img-container" src="assets/homeimg.jpg" alt="">
+      <!-- <form [formGroup]="filterForm">
+        <div class="comm-mb">
+          <label class="flex-custom no-wrap">Type of vehicles</label>
+          <ng-select [items]="vehicleTypeList"  bindLabel="name" bindValue="id" name="typeOfVehicle" id="typeOfVehicle" formControlName="type"></ng-select>
+        </div> 
+        <div class="comm-mb">
+          <label class="flex-custom no-wrap">Year of manufacture</label>
+          <ng-select [items]="manufacturedYearList"  bindLabel="name" bindValue="id" name="manufacturedYear" id="manufacturedYear" formControlName="year"></ng-select>
+        </div> 
+      </form> -->
+    
+    <div class="content" *ngIf="!showDetails">
+      <!-- <div class="l-content">
+        <div class="form-bg" [formGroup]="submitForm">
+          <div class="mb-12"><label>We will get back to you within 48 hrs with itineraries.</label></div>
+          <div class="form-group">
+            <div class="label-div">
+                <label class="nef-label">First Name<span class="mandatory">*</span></label>
+            </div>
+            <div class="input-box">
+                <input type="text" class="form-control" [class.border-danger]=""  id="name" autocomplete="off" formControlName="name" placeholder="" name="name">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="label-div">
+                <label class="nef-label">E-mail/URL<span class="mandatory">*</span></label>
+            </div>
+            <div class="input-box">
+                <input type="text" class="form-control" [class.border-danger]=""  id="email" autocomplete="off" formControlName="email" placeholder="" name="email">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="label-div">
+                <label class="nef-label">Phone<span class="mandatory">*</span></label>
+            </div>
+            <div class="input-box">
+                <input type="text" class="form-control" [class.border-danger]=""  id="phoneNo" autocomplete="off" formControlName="phoneNo" placeholder="" name="phoneNo">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="label-div">
+                <label class="nef-label">Country<span class="mandatory">*</span></label>
+            </div>
+            <div class="input-box">
+                <input type="text" class="form-control" [class.border-danger]=""  id="country" autocomplete="off" formControlName="country" placeholder="" name="country">
+            </div>
+          </div>
+          <button class="btn-group">Submit</button>
+        </div>
+      </div> -->
+      <div class="r-content">
+        <h3>Manufactured vehicles</h3>
+        <form [formGroup]="filterForm">
+          <div class="flex-custom">
+            <div class="comm-mb">
+              <label class="flex-custom no-wrap mr-12 mb-12">Type of vehicles</label>
+              <select class="selector"  name="typeOfVehicle" id="typeOfVehicle" formControlName="type">
+                <option *ngFor="let val of vehicleTypeList" [ngValue]="val.id">{{val.name}}</option>
+              </select>
+            </div> 
+            <div class="comm-mb">
+              <label class="flex-custom no-wrap mb-12">Year of manufacture</label>
+              <select class="selector"  name="manufacturedYear" id="manufacturedYear" formControlName="year">
+                <option *ngFor="let val of manufacturedYearList" [ngValue]="val.id">{{val.name}}</option>
+              </select>
+            </div> 
+            <div class="srch-btn" (click)="filter()">Search
+            </div>
+          </div>
+      </form>
+        <ng-container  *ngFor="let list of vehicleList;let i=index">
+          <img class="w-50 mb-12  cursor-pointer" [src]=list.image alt="" (click)="routeToVehicleDetails(list)">
+          <div class="flex-custom">
+            <div class="vehicleName mb-4 mr-12" (click)="routeToVehicleDetails(list)">Model Name: 
+              {{list?.name}}
+            </div> 
+            <div *ngIf="list?.wishlist" class="wishlist mb-4" (click)="removeWishlist(list)">
+              Added to wishlist
+            </div>
+            <div *ngIf="!list?.wishlist" class="wishlist mb-4" (click)="addWishlist(list)">
+              Add to wishlist
+            </div>
+          </div>
+       
+
+        </ng-container>
+      </div>
+    </div>
+    <div *ngIf="showDetails">
+      <app-vehicle-details [selectedVehicle]= "selectedVehicle"></app-vehicle-details>
+    </div>
+
+
+    <div class="footer-container">
+
+
+        <div class="footer">
+            <div class="footer-links d-flex">
+                <div class="foot-header col-3">
+                    <label class="mb-12">Links</label>
+                    <label class="text"><img class="mr-12" src="assets/right-arrow.svg" alt="">Home</label>
+                    <label class="text"><img class="mr-12" src="assets/right-arrow.svg" alt="">About</label>
+                    <label class="text"><img class="mr-12" src="assets/right-arrow.svg" alt="">Manufacture vehicles</label>
+                    <label class="text"><img class="mr-12" src="assets/right-arrow.svg" alt="">Insurance</label>
+                    <label class="text"><img class="mr-12" src="assets/right-arrow.svg" alt="">Contact</label>
+
+                </div>
+                <div class="foot-header col-3">
+                    <label class="mb-12">Manufacture vehicles</label>
+                    <label class="text"><img class="mr-12" src="assets/right-arrow.svg" alt="">Honda</label>
+                    <label class="text"><img class="mr-12" src="assets/right-arrow.svg" alt="">Mahindra</label>
+                    <label class="text"><img class="mr-12" src="assets/right-arrow.svg" alt="">Benz</label>
+                    <label class="text"><img class="mr-12" src="assets/right-arrow.svg" alt="">BMW</label>
+                    <label class="text"><img class="mr-12" src="assets/right-arrow.svg" alt="">Porche</label>
+                    <label class="text"><img class="mr-12" src="assets/right-arrow.svg" alt="">Hyundai</label>
+                </div>
+                <div class="foot-header col-3">
+                    <label class="mb-12">Insurance</label>
+                    <label class="text"><img class="mr-12" src="assets/right-arrow.svg" alt="">Company 1</label>
+                    <label class="text"><img class="mr-12" src="assets/right-arrow.svg" alt="">Company 2</label>
+                    <label class="text"><img class="mr-12" src="assets/right-arrow.svg" alt="">Company 3</label>
+                    <label class="text"><img class="mr-12" src="assets/right-arrow.svg" alt="">Company 1</label>
+                </div>
+                <div class="foot-header col-3">
+                    <label class="mb-12">Company Location</label>
+                    <label class="text"><img class="mr-12" src="assets/right-arrow.svg" alt="">China</label>
+                    <label class="text"><img class="mr-12" src="assets/right-arrow.svg" alt="">German</label>
+                    <label class="text"><img class="mr-12" src="assets/right-arrow.svg" alt="">Chicago</label>
+                    <label class="text"><img class="mr-12" src="assets/right-arrow.svg" alt="">France</label>
+                    <label class="text"><img class="mr-12" src="assets/right-arrow.svg" alt="">India</label>
+                    <label class="text"><img class="mr-12" src="assets/right-arrow.svg" alt="">UK</label>
+                </div>
+            </div>
+          </div> 
+          <div class="btm-footer">
+            <div class="btm-footer-links">
+                <div class="d-flex">
+                    <label>Copyright 2022 AM Company. All rights reserved.</label>
+                </div>
+            </div>
+          </div> 
+    </div>
+
+  
+  </div>
+  

@@ -1,0 +1,17 @@
+<div class="header">
+    <div class="flex-custom">
+        Car Model name
+        {{selectedVehicle?.name}}
+    </div>
+    <div class="flex-custom">
+        <img class="w-50 mb-12" [src]=selectedVehicle?.image alt="">
+        <div class="ml-12">Description
+            <p class="list-des">Car model name: {{selectedVehicle?.name}}</p>
+            <p class="list-des">Type of vehicle: {{selectedVehicle?.type}}</p>
+            <p class="list-des">Year of manufacture: {{selectedVehicle?.yearOfManufacture}}</p>
+            <p class="list-des">Price:{{selectedVehicle?.price}} Rupees</p>
+        </div>
+    </div>
+   
+</div>
+
