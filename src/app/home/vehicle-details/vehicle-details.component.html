@@ -5,12 +5,48 @@
     </div>
     <div class="flex-custom">
         <img class="w-50 mb-12" [src]=selectedVehicle?.image alt="">
-        <div class="ml-12">Description
+        <div class="desAlign">Description
             <p class="list-des">Car model name: {{selectedVehicle?.name}}</p>
-            <p class="list-des">Type of vehicle: {{selectedVehicle?.type}}</p>
+            <p class="list-des">Type of vehicle: {{selectedVehicle?.type=='fuel'? 'Fuel vehicle' :'Electric vehicle'}}</p>
             <p class="list-des">Year of manufacture: {{selectedVehicle?.yearOfManufacture}}</p>
             <p class="list-des">Price: {{selectedVehicle?.price}} Rupees</p>
             <p class="list-des">Suggested Insurance Company: {{filterInsuranceCompany()}}</p>
+            <div class="form-bg" [formGroup]="submitForm">
+            <div class="mb-12"><label>Personal Details</label></div>
+            <div class="form-group">
+                <div class="label-div">
+                    <label class="nef-label">First Name<span class="mandatory">*</span></label>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="form-control" [class.border-danger]=""  id="name" autocomplete="off" formControlName="name" placeholder="" name="name">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label-div">
+                    <label class="nef-label">E-mail/URL<span class="mandatory">*</span></label>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="form-control" [class.border-danger]=""  id="email" autocomplete="off" formControlName="email" placeholder="" name="email">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label-div">
+                    <label class="nef-label">Phone<span class="mandatory">*</span></label>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="form-control" [class.border-danger]=""  id="phoneNo" autocomplete="off" formControlName="phoneNo" placeholder="" name="phoneNo">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label-div">
+                    <label class="nef-label">Country<span class="mandatory">*</span></label>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="form-control" [class.border-danger]=""  id="country" autocomplete="off" formControlName="country" placeholder="" name="country">
+                </div>
+            </div>
+            <button class="btn-group">Submit</button>
+            </div>
         </div>
     </div>
    

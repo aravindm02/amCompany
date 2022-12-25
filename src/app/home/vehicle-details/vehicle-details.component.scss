@@ -5,9 +5,25 @@
     display: grid;
     font-weight: 800;
 }
-.list-des{
-    font-size: 18px;
-    font-weight: 400;
-    margin-bottom: 8px;
-    margin-left: 40px;
+.desAlign{
+    margin-left: 32px;
+    .list-des{
+        font-size: 18px;
+        font-weight: 400;
+        margin-bottom: 8px;
+        margin-left: 40px;
+    }
+}
+
+.form-group{
+    margin-bottom: 16px;
+    .label-div{
+        margin-bottom: 4px;
+    }
+}
+.btn-group{
+    &:hover{
+        background: black;
+        color: #ffffff;
+    }
 }
