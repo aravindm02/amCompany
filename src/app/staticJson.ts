@@ -53,15 +53,18 @@ export class StaticJson {
         insuranceCompany:[
             {
                 name:'National Insurance',
-                limitPrice:3000000
+                minPrice:500000,
+                maxPrice:3000000
             },
             {
                 name:'Life Insurance Corporation of India',
-                limitPrice:1000000
+                minPrice:3000000,
+                maxPrice:6000000
             },
             {
                 name:'SBI Life Insurance Co. Ltd.',
-                limitPrice:5000000
+                minPrice:6000000,
+                maxPrice:10000000
             }
         ],
 

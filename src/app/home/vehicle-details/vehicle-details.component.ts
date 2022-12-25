@@ -21,7 +21,7 @@ export class VehicleDetailsComponent implements OnInit {
     })
   }
   filterInsuranceCompany(){
-    let val=this.insuranceCompany.filter((e: { limitPrice: number; })=>this.selectedVehicle.price<=e.limitPrice)
+    let val=this.insuranceCompany.filter((e: { maxPrice: number;minPrice: number })=>this.selectedVehicle.price<=e.maxPrice && this.selectedVehicle.price>=e.minPrice)
     return val[0].name
   }
 }
