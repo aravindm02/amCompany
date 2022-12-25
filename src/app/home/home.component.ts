@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   showDetails=false;
   selectedVehicle: any;
   manufacturedYearList: { name: string; id: any; }[] |undefined;
+  staticValues:any;
 
 
 
@@ -29,7 +30,8 @@ export class HomeComponent implements OnInit {
     private router:Router) { }
 
   ngOnInit(): void {
-    this.vehicleList=this.constValues.vehicles
+    this.staticValues=this.constValues
+    this.vehicleList=this.staticValues.vehicles
     this.filterForm=this.fb.group({
       type:[null],
       year:[null],
