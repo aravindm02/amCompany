@@ -52,13 +52,19 @@ export class StaticJson {
         ],
         insuranceCompany:[
             {
-                name:'',
-                type:'microsoft.resources/subscriptions',
-                singular:'Subscription',
-                plural:'Subscriptions',
-                dbName:'subscriptions'
+                name:'National Insurance',
+                limitPrice:3000000
+            },
+            {
+                name:'Life Insurance Corporation of India',
+                limitPrice:1000000
+            },
+            {
+                name:'SBI Life Insurance Co. Ltd.',
+                limitPrice:5000000
             }
         ],
+
         years:[
             {name:'All',id:'all'},
             {name:'2000',id:2000},
