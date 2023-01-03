@@ -52,9 +52,10 @@
               Add to wishlist
             </div>
           </div>
-       
-
         </ng-container>
+        <div class="mt-12" *ngIf="!vehicleList?.length">
+          No vehicle found.
+        </div>
       </div>
     </div>
     <div *ngIf="showDetails">
